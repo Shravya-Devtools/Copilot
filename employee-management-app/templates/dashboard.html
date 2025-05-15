@@ -1,44 +1,49 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    padding: 20px;
-}
-.container {
-    max-width: 800px;
-    margin: auto;
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-h1 {
-    text-align: center;
-}
-form {
-    margin-top: 20px;
-}
-input, select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-button {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    border: none;
-    color: white;
-    border-radius: 5px;
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 30px;
-}
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-}
-th {
-    background-color: #007BFF;
-    color: white;
-}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employee Dashboard</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+<h1>Employee Dashboard</h1>
+<form method="post" action="/add">
+<input type="text" name="name" placeholder="Name" required>
+<input type="date" name="dob" placeholder="Date of Birth" required>
+<input type="date" name="join_date" placeholder="Joining Date" required>
+<input type="text" name="asset" placeholder="Asset Assigned" required>
+<input type="text" name="role" placeholder="Role" required>
+<input type="text" name="certification" placeholder="Certifications" required>
+<button type="submit">Add Employee</button>
+</form>
+ 
+    <table>
+<tr>
+<th>Name</th>
+<th>DOB</th>
+<th>Joining Date</th>
+<th>Asset</th>
+<th>Role</th>
+<th>Certifications</th>
+<th>Actions</th>
+</tr>
+        {% for e in employees %}
+<tr>
+<td>{{ e[1] }}</td>
+<td>{{ e[2] }}</td>
+<td>{{ e[3] }}</td>
+<td>{{ e[4] }}</td>
+<td>{{ e[5] }}</td>
+<td>{{ e[6] }}</td>
+<td>
+<a href="/edit/{{ e[0] }}">Edit</a> |
+<a href="/delete/{{ e[0] }}">Delete</a>
+</td>
+</tr>
+        {% endfor %}
+</table>
+<br>
+<a href="/logout">Logout</a>
+</div>
+</body>
+</html>

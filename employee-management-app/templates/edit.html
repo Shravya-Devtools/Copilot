@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Edit Employee</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+<h1>Edit Employee</h1>
+<form method="post">
+<input type="text" name="name" value="{{ employee[1] }}" required>
+<input type="date" name="dob" value="{{ employee[2] }}" required>
+<input type="date" name="join_date" value="{{ employee[3] }}" required>
+<input type="text" name="asset" value="{{ employee[4] }}" required>
+<input type="text" name="role" value="{{ employee[5] }}" required>
+<input type="text" name="certification" value="{{ employee[6] }}" required>
+<button type="submit">Update</button>
+</form>
+<br>
+<a href="/dashboard">Back to Dashboard</a>
+</div>
+</body>
+</html>
